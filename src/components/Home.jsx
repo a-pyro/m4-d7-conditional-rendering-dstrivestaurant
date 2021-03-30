@@ -26,8 +26,11 @@ class Home extends React.Component {
       <Container>
         <Row className='justify-content-center mt-3'>
           <Col xs={12} md={6}>
-            <h1>Welcome to Strivestaurant</h1>
-            <p>The best dishes you can find on the web!</p>
+            <h1>{this.props.newTitle ?? 'Welcome to Strivestaurant'}</h1>
+            <p>
+              {this.props.newPayoff ??
+                'The best dishes you can find on the web!'}
+            </p>
             <Carousel
             // onSlide={(e) => this.setState({
             //     selectedDish: items[e]
