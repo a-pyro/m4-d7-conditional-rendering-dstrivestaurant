@@ -56,7 +56,7 @@ class Home extends React.Component {
         </Row>
         <Row className='justify-content-center mt-5'>
           <Col xs={8}>
-            <Reservations />
+            <Reservations header='prenotate prima che finisca la pasta!' />
           </Col>
         </Row>
         {this.state.selectedDish.comments.some((comm) => comm.rating < 5) ? (
