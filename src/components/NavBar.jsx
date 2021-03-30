@@ -29,7 +29,11 @@ export default class NavBar extends Component {
     return (
       <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
         <Navbar.Brand href='#home'>
-          {this.props.title} - Strive for food
+          {this.props.title} -{' '}
+          {this.props.links.find((name) => name === 'Alfredo')
+            ? 'Alfredo'
+            : 'Strive'}{' '}
+          for food
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='responsive-navbar-nav' />
         <Navbar.Collapse id='responsive-navbar-nav'>
