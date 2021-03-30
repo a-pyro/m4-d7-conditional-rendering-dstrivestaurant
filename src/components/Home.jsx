@@ -1,5 +1,5 @@
 import React from 'react';
-import { Carousel, Col, Container, Row } from 'react-bootstrap';
+import { Carousel, Col, Container, Row, Alert } from 'react-bootstrap';
 import items from '../data/menu.json';
 import DishComments from './DishComments';
 import ReservationForm from './ReservationForm';
@@ -59,11 +59,21 @@ class Home extends React.Component {
             <Reservations />
           </Col>
         </Row>
-        <Row className='justify-content-center mt-5'>
-          <Col xs={8}>
-            <ReservationForm />
-          </Col>
-        </Row>
+        {this.state.selectedDish.comments.some((comm) => comm.rating < 5) ? (
+          <Row className='justify-content-center mt-5'>
+            <Col xs={8}>
+              <Alert variant='warning'>
+                The selected dish is not a full 5 stars
+              </Alert>
+            </Col>
+          </Row>
+        ) : (
+          <Row className='justify-content-center mt-5'>
+            <Col xs={8}>
+              <ReservationForm />
+            </Col>
+          </Row>
+        )}
 
         {this.state.selectedDish.name !== 'Amatriciana' && (
           <Row className='justify-content-center mt-5'>
